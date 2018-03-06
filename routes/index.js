@@ -35,6 +35,7 @@ router.get('/crm/article/get', function(req, res, next) {
     })
 });
 
+
 router.post('/crm/article/add', (req, res, next) => {
     const body = req.body;
     const queryString = 'INSERT INTO news (id, title, author, createtime, updatetime, content, logo,contentText) VALUES(0,?,?,?,?,?,?,?);'
