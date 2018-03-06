@@ -37,11 +37,11 @@ router.get('/crm/article/get', function(req, res, next) {
 
 router.post('/crm/article/add', (req, res, next) => {
     const body = req.body;
-    const queryString = 'INSERT INTO news (id, title, author, createtime, updatetime, content, logo) VALUES(0,?,?,?,?,?,?);'
+    const queryString = 'INSERT INTO news (id, title, author, createtime, updatetime, content, logo,contentText) VALUES(0,?,?,?,?,?,?,?);'
     const createtime = Math.round(new Date().getTime()/1000);
     const updatetime = Math.round(new Date().getTime()/1000);
 
-    let params = [body.title, body.author, createtime, updatetime, body.content, body.logo]
+    let params = [body.title, body.author, createtime, updatetime, body.content, body.logo, body.contentText]
     console.log(params);
     db.query(queryString, params, (error, results, fields) => {
         if(error) {
